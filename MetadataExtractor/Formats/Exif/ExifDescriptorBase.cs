@@ -27,7 +27,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using JetBrains.Annotations;
-using MetadataExtractor.Util;
 using MetadataExtractor.IO;
 
 // ReSharper disable MemberCanBePrivate.Global
@@ -195,12 +194,15 @@ namespace MetadataExtractor.Formats.Exif
             }
         }
 
+/*
         [CanBeNull]
         public string GetInteropVersionDescription()
         {
             return GetVersionBytesDescription(ExifDirectoryBase.TagInteropVersion, 2);
         }
+*/
 
+/*
         [CanBeNull]
         public string GetInteropIndexDescription()
         {
@@ -211,7 +213,9 @@ namespace MetadataExtractor.Formats.Exif
                 ? "Recommended Exif Interoperability Rules (ExifR98)"
                 : "Unknown (" + value + ")";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetReferenceBlackWhiteDescription()
         {
@@ -226,6 +230,7 @@ namespace MetadataExtractor.Formats.Exif
             var whiteB = ints[5];
             return $"[{blackR},{blackG},{blackB}] [{whiteR},{whiteG},{whiteB}]";
         }
+*/
 
         [CanBeNull]
         public string GetYResolutionDescription()
@@ -247,6 +252,7 @@ namespace MetadataExtractor.Formats.Exif
             return $"{resolution} dots per {unit?.ToLower() ?? "unit"}";
         }
 
+/*
         [CanBeNull]
         public string GetYCbCrPositioningDescription()
         {
@@ -254,7 +260,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Center of pixel array",
                 "Datum point");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetOrientationDescription()
         {
@@ -270,7 +278,8 @@ namespace MetadataExtractor.Formats.Exif
                 "Inch",
                 "cm");
         }
-
+*/
+/*
         /// <summary>The Windows specific tags uses plain Unicode.</summary>
         [CanBeNull]
         private string GetUnicodeDescription(int tag)
@@ -318,7 +327,9 @@ namespace MetadataExtractor.Formats.Exif
         {
             return GetUnicodeDescription(ExifDirectoryBase.TagWinSubject);
         }
+*/
 
+/*
         [CanBeNull]
         public string GetYCbCrSubsamplingDescription()
         {
@@ -331,15 +342,18 @@ namespace MetadataExtractor.Formats.Exif
                 return "YCbCr4:2:0";
             return "(Unknown)";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetPlanarConfigurationDescription()
         {
-            // When image format is no compression YCbCr, this value shows byte aligns of YCbCr
-            // data. If value is '1', Y/Cb/Cr value is chunky format, contiguous for each subsampling
-            // pixel. If value is '2', Y/Cb/Cr value is separated and stored to Y plane/Cb plane/Cr
-            // plane format.
-            return GetIndexedDescription(ExifDirectoryBase.TagPlanarConfiguration, 1, "Chunky (contiguous for each subsampling pixel)", "Separate (Y-plane/Cb-plane/Cr-plane format)");
+            // When image format is no compression YCbCr, this value shows byte aligns of YCbCr data.
+            // If value is '1', Y/Cb/Cr value is chunky format, contiguous for each subsampling pixel.
+            // If value is '2', Y/Cb/Cr value is separated and stored to Y plane/Cb plane/Cr plane format.
+            return GetIndexedDescription(ExifDirectoryBase.TagPlanarConfiguration, 1,
+                "Chunky (contiguous for each subsampling pixel)",
+                "Separate (Y-plane/Cb-plane/Cr-plane format)");
         }
 
         [CanBeNull]
@@ -362,7 +376,9 @@ namespace MetadataExtractor.Formats.Exif
             var value = Directory.GetString(ExifDirectoryBase.TagStripByteCounts);
             return value == null ? null : value + " bytes";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetPhotometricInterpretationDescription()
         {
@@ -405,28 +421,36 @@ namespace MetadataExtractor.Formats.Exif
                     return "Unknown colour space";
             }
         }
+*/
 
+/*
         [CanBeNull]
         public string GetBitsPerSampleDescription()
         {
             var value = Directory.GetString(ExifDirectoryBase.TagBitsPerSample);
             return value == null ? null : value + " bits/component/pixel";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetImageWidthDescription()
         {
             var value = Directory.GetString(ExifDirectoryBase.TagImageWidth);
             return value == null ? null : value + " pixels";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetImageHeightDescription()
         {
             var value = Directory.GetString(ExifDirectoryBase.TagImageHeight);
             return value == null ? null : value + " pixels";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetNewSubfileTypeDescription()
         {
@@ -449,7 +473,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Reduced-resolution image",
                 "Single page of multi-page image");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetThresholdingDescription()
         {
@@ -458,7 +484,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Ordered dither or halftone",
                 "Randomized dither");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetFillOrderDescription()
         {
@@ -466,7 +494,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Normal",
                 "Reversed");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetSubjectDistanceRangeDescription()
         {
@@ -476,7 +506,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Close view",
                 "Distant view");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetSensitivityTypeDescription()
         {
@@ -490,7 +522,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Recommended Exposure Index and ISO Speed",
                 "Standard Output Sensitivity, Recommended Exposure Index and ISO Speed");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetLensSpecificationDescription()
         {
@@ -553,7 +587,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return value == 0 ? "Unknown" : GetFocalLengthDescription(value);
         }
+*/
 
+/*
         [CanBeNull]
         public string GetDigitalZoomRatioDescription()
         {
@@ -564,7 +600,9 @@ namespace MetadataExtractor.Formats.Exif
                 ? "Digital zoom not used"
                 : value.ToDouble().ToString("0.#");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetWhiteBalanceModeDescription()
         {
@@ -572,7 +610,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Auto white balance",
                 "Manual white balance");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetExposureModeDescription()
         {
@@ -581,7 +621,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Manual exposure",
                 "Auto bracket");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetCustomRenderedDescription()
         {
@@ -589,6 +631,7 @@ namespace MetadataExtractor.Formats.Exif
                 "Normal process",
                 "Custom process");
         }
+*/
 
         [CanBeNull]
         public string GetUserCommentDescription()
@@ -648,6 +691,7 @@ namespace MetadataExtractor.Formats.Exif
             }
         }
 
+/*
         [CanBeNull]
         public string GetIsoEquivalentDescription()
         {
@@ -659,25 +703,32 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return value.ToString();
         }
+*/
 
+/*
         [CanBeNull]
         public string GetExifVersionDescription()
         {
             return GetVersionBytesDescription(ExifDirectoryBase.TagExifVersion, 2);
         }
+*/
 
+/*
         [CanBeNull]
         public string GetFlashPixVersionDescription()
         {
             return GetVersionBytesDescription(ExifDirectoryBase.TagFlashpixVersion, 2);
         }
+*/
 
+/*
         [CanBeNull]
         public string GetSceneTypeDescription()
         {
             return GetIndexedDescription(ExifDirectoryBase.TagSceneType, 1,
                 "Directly photographed image");
         }
+*/
 
         /// <summary>
         /// String description of CFA Pattern
@@ -739,20 +790,20 @@ namespace MetadataExtractor.Formats.Exif
             if (pattern[0] == 0 && pattern[1] == 0)
                 return "<zero pattern size>";
 
-            int end = 2 + pattern[0] * pattern[1];
+            var end = 2 + pattern[0] * pattern[1];
             if (end > pattern.Length)
                 return "<invalid pattern size>";
 
             string[] cfaColors = { "Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "White" };
 
-            StringBuilder ret = new StringBuilder();
+            var ret = new StringBuilder();
             ret.Append("[");
-            for (int pos = 2; pos < end; pos++)
+            for (var pos = 2; pos < end; pos++)
             {
-                if (pattern[pos] <= cfaColors.Length - 1)
-                    ret.Append(cfaColors[pattern[pos]]);
-                else
-                    ret.Append("Unknown");  // indicated pattern position is outside the array bounds
+                // use bounds check
+                ret.Append(pattern[pos] <= cfaColors.Length - 1
+                    ? cfaColors[pattern[pos]]
+                    : "Unknown");
 
                 if ((pos - 2) % pattern[1] == 0)
                     ret.Append(",");
@@ -780,7 +831,7 @@ namespace MetadataExtractor.Formats.Exif
         {
             int[] ret;
 
-            byte[] values = Directory.GetByteArray(tagType);
+            var values = Directory.GetByteArray(tagType);
             if (values == null)
                 return null;
 
@@ -792,7 +843,7 @@ namespace MetadataExtractor.Formats.Exif
                 return ret;
             }
 
-            IndexedReader reader = new ByteArrayReader(values);
+            var reader = new ByteArrayReader(values);
 
             // first two values should be read as 16-bits (2 bytes)
             var item0 = reader.GetInt16(0);
@@ -800,8 +851,8 @@ namespace MetadataExtractor.Formats.Exif
 
             ret = new int[values.Length - 2];
 
-            bool copyArray = false;
-            int end = 2 + item0 * item1;
+            var copyArray = false;
+            var end = 2 + item0 * item1;
             if (end > values.Length) // sanity check in case of byte order problems; calculated 'end' should be <= length of the values
             {
                 // try swapping byte order (I have seen this order different than in EXIF)
@@ -825,9 +876,12 @@ namespace MetadataExtractor.Formats.Exif
                 for (var i = 4; i < values.Length; i++)
                     ret[i - 2] = reader.GetByte(i);
             }
+
             return ret;
         }
 
+/*
+>>>>>>> Exploration of ideas for a new API.
         [CanBeNull]
         public string GetFileSourceDescription()
         {
@@ -836,7 +890,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Reflection Print Scanner",
                 "Digital Still Camera (DSC)");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetExposureBiasDescription()
         {
@@ -845,7 +901,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return value.ToSimpleString() + " EV";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetMaxApertureValueDescription()
         {
@@ -854,7 +912,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return GetFStopDescription(PhotographicConversions.ApertureToFStop(aperture));
         }
+*/
 
+/*
         [CanBeNull]
         public string GetApertureValueDescription()
         {
@@ -863,7 +923,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return GetFStopDescription(PhotographicConversions.ApertureToFStop(aperture));
         }
+*/
 
+/*
         [CanBeNull]
         public string GetExposureProgramDescription()
         {
@@ -877,6 +939,7 @@ namespace MetadataExtractor.Formats.Exif
                 "Portrait mode",
                 "Landscape mode");
         }
+*/
 
         [CanBeNull]
         public string GetFocalPlaneXResolutionDescription()
@@ -898,6 +961,7 @@ namespace MetadataExtractor.Formats.Exif
             return value.Reciprocal.ToSimpleString() + (unit == null ? string.Empty : " " + unit.ToLower());
         }
 
+/*
         [CanBeNull]
         public string GetFocalPlaneResolutionUnitDescription()
         {
@@ -908,7 +972,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Inches",
                 "cm");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetExifImageWidthDescription()
         {
@@ -926,7 +992,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return value + " pixels";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetColorSpaceDescription()
         {
@@ -939,7 +1007,9 @@ namespace MetadataExtractor.Formats.Exif
                 return "Undefined";
             return "Unknown (" + value + ")";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetFocalLengthDescription()
         {
@@ -948,7 +1018,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return GetFocalLengthDescription(value.ToDouble());
         }
+*/
 
+/*
         [CanBeNull]
         public string GetFlashDescription()
         {
@@ -961,7 +1033,7 @@ namespace MetadataExtractor.Formats.Exif
              * 4 = auto used
              * 5 = unknown
              * 6 = red eye reduction used
-             */
+             #1#
             int value;
             if (!Directory.TryGetInt32(ExifDirectoryBase.TagFlash, out value))
                 return null;
@@ -977,7 +1049,9 @@ namespace MetadataExtractor.Formats.Exif
                 sb.Append(", red-eye reduction");
             return sb.ToString();
         }
+*/
 
+/*
         [CanBeNull]
         public string GetWhiteBalanceDescription()
         {
@@ -1015,7 +1089,9 @@ namespace MetadataExtractor.Formats.Exif
                     return "Unknown (" + value + ")";
             }
         }
+*/
 
+/*
         [CanBeNull]
         public string GetMeteringModeDescription()
         {
@@ -1047,7 +1123,9 @@ namespace MetadataExtractor.Formats.Exif
                     return "Unknown (" + value + ")";
             }
         }
+*/
 
+/*
         [CanBeNull]
         public string GetCompressionDescription()
         {
@@ -1143,7 +1221,9 @@ namespace MetadataExtractor.Formats.Exif
                     return "Unknown (" + value + ")";
             }
         }
+*/
 
+/*
         [CanBeNull]
         public string GetSubjectDistanceDescription()
         {
@@ -1152,7 +1232,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return $"{value.ToDouble():0.0##} metres";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetCompressedAverageBitsPerPixelDescription()
         {
@@ -1162,20 +1244,26 @@ namespace MetadataExtractor.Formats.Exif
             var ratio = value.ToSimpleString();
             return value.IsInteger && value.ToInt32() == 1 ? ratio + " bit/pixel" : ratio + " bits/pixel";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetExposureTimeDescription()
         {
             var value = Directory.GetString(ExifDirectoryBase.TagExposureTime);
             return value == null ? null : value + " sec";
         }
+*/
 
+/*
         [CanBeNull]
         public string GetShutterSpeedDescription()
         {
             return GetShutterSpeedDescription(ExifDirectoryBase.TagShutterSpeed);
         }
+*/
 
+/*
         [CanBeNull]
         public string GetFNumberDescription()
         {
@@ -1184,7 +1272,9 @@ namespace MetadataExtractor.Formats.Exif
                 return null;
             return GetFStopDescription(value.ToDouble());
         }
+*/
 
+/*
         [CanBeNull]
         public string GetSensingMethodDescription()
         {
@@ -1201,7 +1291,9 @@ namespace MetadataExtractor.Formats.Exif
                 "Trilinear sensor",
                 "Color sequential linear sensor");
         }
+*/
 
+/*
         [CanBeNull]
         public string GetComponentConfigurationDescription()
         {
@@ -1218,7 +1310,9 @@ namespace MetadataExtractor.Formats.Exif
             }
             return componentConfig.ToString();
         }
+*/
 
+/*
         [CanBeNull]
         public string GetJpegProcDescription()
         {
@@ -1236,5 +1330,6 @@ namespace MetadataExtractor.Formats.Exif
                     return "Unknown (" + value + ")";
             }
         }
+*/
     }
 }
