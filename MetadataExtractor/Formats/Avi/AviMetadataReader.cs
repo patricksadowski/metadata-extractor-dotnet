@@ -6,11 +6,7 @@ using MetadataExtractor.Formats.FileSystem;
 using MetadataExtractor.Formats.Riff;
 using MetadataExtractor.IO;
 
-#if NET35
-using DirectoryList = System.Collections.Generic.IList<MetadataExtractor.Directory>;
-#else
 using DirectoryList = System.Collections.Generic.IReadOnlyList<MetadataExtractor.Directory>;
-#endif
 
 namespace MetadataExtractor.Formats.Avi
 {

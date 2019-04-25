@@ -4,11 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-#if NET35
-using DirectoryList = System.Collections.Generic.IList<MetadataExtractor.Directory>;
-#else
 using DirectoryList = System.Collections.Generic.IReadOnlyList<MetadataExtractor.Directory>;
-#endif
 
 namespace MetadataExtractor.Formats.Jpeg
 {
@@ -24,9 +20,6 @@ namespace MetadataExtractor.Formats.Jpeg
         {
             // The entire contents of the segment are the comment
             return segments.Select(segment => new JpegCommentDirectory(new StringValue(segment.Bytes, Encoding.UTF8)))
-#if NET35
-                .Cast<Directory>()
-#endif
                 .ToList();
         }
     }

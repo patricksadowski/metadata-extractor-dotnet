@@ -16,11 +16,7 @@ using MetadataExtractor.Formats.Xmp;
 using MetadataExtractor.IO;
 using MetadataExtractor.Util;
 
-#if NET35
-using DirectoryList = System.Collections.Generic.IList<MetadataExtractor.Directory>;
-#else
 using DirectoryList = System.Collections.Generic.IReadOnlyList<MetadataExtractor.Directory>;
-#endif
 
 namespace MetadataExtractor.Formats.Png
 {
@@ -548,16 +544,7 @@ namespace MetadataExtractor.Formats.Png
             try
             {
                 var ms = new MemoryStream();
-
-#if !NET35
                 inflaterStream.CopyTo(ms);
-#else
-                var buffer = new byte[1024];
-                int count;
-                while ((count = inflaterStream.Read(buffer, 0, 256)) > 0)
-                    ms.Write(buffer, 0, count);
-#endif
-
                 textBytes = ms.ToArray();
             }
             catch (Exception ex)

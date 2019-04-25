@@ -8,11 +8,7 @@ using System.Text;
 using MetadataExtractor.Formats.Jpeg;
 using MetadataExtractor.IO;
 
-#if NET35
-using DirectoryList = System.Collections.Generic.IList<MetadataExtractor.Directory>;
-#else
 using DirectoryList = System.Collections.Generic.IReadOnlyList<MetadataExtractor.Directory>;
-#endif
 
 namespace MetadataExtractor.Formats.Adobe
 {
@@ -30,9 +26,6 @@ namespace MetadataExtractor.Formats.Adobe
             return segments
                 .Where(segment => segment.Bytes.Length == 12 && JpegSegmentPreamble.Equals(Encoding.UTF8.GetString(segment.Bytes, 0, JpegSegmentPreamble.Length), StringComparison.OrdinalIgnoreCase))
                 .Select(bytes => Extract(new SequentialByteArrayReader(bytes.Bytes)))
-#if NET35
-                .Cast<Directory>()
-#endif
                 .ToList();
         }
 
